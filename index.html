@@ -1,0 +1,103 @@
+:root {
+  --blush: #fde7ec;
+  --paper: #fff8fa;
+  --petal: #f4a3b8;
+  --rose: #b8325f;
+  --ink: #141414;
+  --muted: #5b4a50;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Noto Sans Thai", system-ui, sans-serif;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+h1, h2, h3 {
+  font-family: "Noto Serif Thai", Georgia, serif;
+  line-height: 1.35;
+  margin: 0 0 .6em;
+}
+h1 { font-size: clamp(1.9rem, 5vw, 3.2rem); }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); }
+p { margin: 0 0 1em; max-width: 62ch; }
+
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--rose); outline-offset: 3px; }
+
+/* header */
+.site-header {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: .5rem 1.5rem; padding: 1rem 5vw;
+  background: var(--ink); position: sticky; top: 0; z-index: 10;
+}
+.brand { font-family: "Noto Serif Thai", serif; font-weight: 700; font-size: 1.25rem; color: var(--petal); text-decoration: none; }
+.site-header nav { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; }
+.site-header nav a { color: #fff; text-decoration: none; font-size: .95rem; }
+.site-header nav a:hover { color: var(--petal); }
+
+/* hero */
+.hero {
+  display: grid; grid-template-columns: 1.1fr .9fr; align-items: center;
+  gap: 2.5rem; padding: 4rem 5vw; background: var(--blush);
+}
+.hero-img { margin: 0; justify-self: center; max-width: 420px; width: 100%; }
+.hero-img img {
+  display: block; width: 100%; height: auto;
+  border: 10px solid var(--ink); border-radius: 4px;
+  box-shadow: 14px 14px 0 var(--petal);
+}
+
+/* buttons */
+.btn {
+  display: inline-block; padding: .75rem 1.6rem; border-radius: 999px;
+  background: var(--ink); color: #fff; text-decoration: none; font-weight: 600;
+  border: 2px solid var(--ink);
+}
+.btn:hover { background: var(--rose); border-color: var(--rose); }
+.btn.ghost { background: transparent; color: #fff; border-color: var(--petal); }
+.btn.ghost:hover { background: var(--petal); color: var(--ink); }
+
+/* sections */
+.section { padding: 4rem 5vw; }
+.section.dark { background: var(--ink); color: #fff; }
+.section.dark h2 { color: var(--petal); }
+.section.dark .btn { background: var(--petal); color: var(--ink); border-color: var(--petal); }
+.section.dark .btn:hover { background: #fff; border-color: #fff; }
+.section.dark .btn.ghost { background: transparent; color: #fff; }
+.section.dark .btn.ghost:hover { background: var(--petal); color: var(--ink); }
+
+/* products */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
+.card { padding: 1.75rem; border: 2px solid var(--petal); border-radius: 4px; }
+.card h3 { color: #fff; }
+.card p { color: #e9dde1; }
+.price { font-family: "Noto Serif Thai", serif; font-size: 1.6rem; font-weight: 700; color: var(--petal) !important; margin: 0; }
+.note { color: #cdbec4; font-size: .9rem; }
+
+/* steps */
+.steps { padding-left: 1.4rem; max-width: 62ch; }
+.steps li { margin-bottom: .8rem; padding-left: .3rem; }
+.steps li::marker { color: var(--rose); font-weight: 700; }
+
+/* contact */
+.links { display: flex; flex-wrap: wrap; gap: .75rem; }
+
+/* footer */
+.site-footer { background: var(--blush); text-align: center; padding: 1.5rem 5vw; font-size: .9rem; color: var(--muted); }
+.site-footer p { margin: 0 auto; }
+
+/* mobile */
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; padding: 2.5rem 5vw; }
+  .hero-img { order: -1; max-width: 300px; }
+  .section { padding: 2.75rem 5vw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
